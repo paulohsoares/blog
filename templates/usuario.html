@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Usuario</title>
+    </head>
+    <body>
+        <div style='border: 2px solid teal; padding: 10px; border-radius: 8px; background-color: orange;text-align: center;'>
+            {% if user[2] == "Professor" %}
+                <h2>Bem vindo Professor</h2>
+            {%else%}
+                <h2>Bem vindo Aluno</h2>
+            {%endif%}
+            <h1>{{user[1]}}</h1>
+
+            {%for aluno in alunos%}
+                <h3>{{aluno}}</h3>
+            {%endfor%}
+            <h1>Paulo Henrique Soares. Estou Aqui</h1>
+            <a href="http://www.oceanbrasil.com/" target="_blank">Click para ir para Ocean Brasil</a>
+        </div>
+    </body>
+</html>
