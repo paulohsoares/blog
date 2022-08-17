@@ -1,22 +1,14 @@
 from flask import Flask, render_template
-
+from datetime import datetime
 
 app = Flask("hello")
 
+posts = [
+    {"title": "Meu primeiro post", "body": "Esse post é o primeiro blog", "author": "Paulo Soares", "created": datetime(2022,8,17)},
+    {"title": "Meu segundo post", "body": "Esse post é o segundo blog", "author": "Paulo Henrique", "created": datetime(2022,8,17)},
+    {"title": "Meu terceiro post", "body": "Esse post é o terceiro blog", "author": "Henrique Soares", "created": datetime(2022,8,17)}
+]
+
 @app.route("/")
-def hello():
-    nomeAula = "Aula python para Web - Raiz"
-    return render_template("index.html", nome=nomeAula)
-
-@app.route("/contato")
-def contato():
-    nomeAula = "Aula python para Web"
-    return render_template("contatos.html", nome=nomeAula)
-
-@app.route("/usuario")
-def usuario():
-    usuario = [1,"Paulo Henrique Soares", "Aluno"]
-    alunos = ["Andre Guedes","Paulo Henrique Soares", "Raiane Caroline", "Alicia Duarte"]
-    return render_template("usuario.html", user=usuario, alunos=alunos)
-
-    
+def index():
+    return render_template("index.html", posts=posts)

@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
-{% block content %}
-        <div style='border: 2px solid teal; padding: 10px; border-radius: 8px; background-color: orange;text-align: center;'>
-            <h1>{{nome}}</h1>
-            <h1>Tela Inicial</h1>
-        </div>
-{% endblock %}
+    {% block content %}
+        {% for post in posts %}
+            <article class="post">
+                <header>
+                    <div>
+                        <h1>{{ post.title }}</h1>
+                        <div class="about">Criado por {{ post["author"]}} em  {{post["created"]}}.</div>
+                    </div>
+                </header>
+                <p class="body">{{post["body"]}}</p>
+            </article>
+            {% if not loop.last %}
+            <hr>
+            {% endif %}
+        {% endfor %}
+    {% endblock %}
