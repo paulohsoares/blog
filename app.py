@@ -5,6 +5,7 @@ app = Flask("hello")
 
 @app.route("/")
 def hello():
+    nomeAula = "Aula python para Web - Raiz"
     return render_template("index.html", nome=nomeAula)
 
 @app.route("/contato")
